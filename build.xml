@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project alfresco-mmt-gui with Jar-in-Jar Loader">
+    <!--this file was created by Eclipse Runnable JAR file Export Wizard-->
+    <!--ANT 1.7 is required-->
+    <!--define folder properties-->
+    <!--used to create runnable jar-->
+    <property name="dir.buildfile" value="."/>
+    <property name="dir.workspace" value="D:/projects/neodoc3/_ws_new"/>
+    <property name="dir.jarfile" value="${dir.buildfile}/target"/>
+    <target name="create_run_jar">
+        <jar destfile="${dir.jarfile}/alfresco-mmt-gui.jar">
+            <manifest>
+                <attribute name="Main-Class" value="org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader"/>
+                <attribute name="Rsrc-Main-Class" value="ru.neodoc.tools.alfresco.mmt.gui.ModuleManagementToolGUI"/>
+                <attribute name="Class-Path" value="."/>
+                <attribute name="Rsrc-Class-Path" value="./ alfresco-mmt.jar swt.jar"/>
+            </manifest>
+            <zipfileset src="jar-in-jar-loader.zip"/>
+            <fileset dir="${dir.buildfile}/bin"/>
+            <zipfileset dir="${dir.buildfile}/lib" includes="alfresco-mmt.jar"/>
+            <zipfileset dir="${dir.buildfile}/lib" includes="swt.jar"/>
+        </jar>
+    </target>
+</project>
